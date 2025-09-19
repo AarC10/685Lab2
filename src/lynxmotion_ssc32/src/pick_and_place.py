@@ -31,6 +31,12 @@ STEP_TIME = 0.05
 HOME_TIME = 3
 HOME_TIMESTEPS = int(HOME_TIME / STEP_TIME)
 
+CLOSE_TIME = 3
+CLOSE_TIMESTEPS = int(CLOSE_TIME / STEP_TIME)
+
+OPEN_TIME = 3
+OPEN_TIMESTEPS = int(OPEN_TIME / STEP_TIME)
+
 current_state = STATE_HOME
 counter = 0
 
@@ -87,7 +93,7 @@ def state_machine():
         set_gripper(False)
         
         counter += 1
-        if counter >= TIMESTEPS:
+        if counter >= CLOSE_TIMESTEPS:
             counter = 0
             current_state = STATE_OPEN_GRIPPER
             
@@ -95,7 +101,7 @@ def state_machine():
         set_gripper(True)
         
         counter += 1
-        if counter >= TIMESTEPS:
+        if counter >= OPEN_TIMESTEPS:
             counter = 0
             current_state = STATE_HOME
 
