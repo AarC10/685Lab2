@@ -83,12 +83,12 @@ def state_machine():
         if counter >= TIMESTEPS:
             counter = 0
             current_state = STATE_OPEN_GRIPPER
-    elif current_state == STATE_OPEN_GRIPPER:
-        set_gripper(open_position=True)
-        counter = 0
-        current_state = STATE_CLOSE_GRIPPER
     elif current_state == STATE_CLOSE_GRIPPER:
-        set_gripper(open_position=False)
+        set_gripper(False)
+        counter = 0
+        current_state = STATE_OPEN_GRIPPER
+    elif current_state == STATE_CLOSE_GRIPPER:
+        set_gripper(True)
         rospy.sleep(10)
         counter = 0
         current_state = STATE_HOME
