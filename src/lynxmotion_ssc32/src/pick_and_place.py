@@ -86,9 +86,7 @@ def state_machine():
     elif current_state == STATE_CLOSE_GRIPPER:
         set_gripper(False)
 
-        current_state = STATE_OPEN_GRIPPER
         counter += 1
-
         if counter >= TIMESTEPS:
             counter = 0
             current_state = STATE_CLOSE_GRIPPER
