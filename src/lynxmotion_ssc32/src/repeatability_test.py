@@ -54,10 +54,12 @@ if __name__ == '__main__':
         joint.position[3] = 0
         joint.position[4] = 0
         joint.position[5] = 0
-        joint.header.stamp = rospy.Time.now()
-        joint_publisher.publish(joint)
-        rospy.sleep(2)
-
+        for i in range(5):
+            joint.position[i] = 0
+            joint.header.stamp = rospy.Time.now()
+            joint_publisher.publish(joint)
+            rospy.sleep(1)
+        
         joint.position[5] = 1.411 # Gripper for pen
         joint.header.stamp = rospy.Time.now()
         joint_publisher.publish(joint)
