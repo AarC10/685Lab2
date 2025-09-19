@@ -7,7 +7,7 @@ joint_publisher = rospy.Publisher('/joint_states', JointState, queue_size=10)
 joint = JointState()
 joint.name = ["base", "shoulder", "elbow", "wrist", "wrist_twist", "gripper"]
 joint.position = [0, 0, 0, 0, 0, 0]
-THETA_INCREMENT = 0.3
+THETA_INCREMENT = 0.03
 reverse = False
 counter = 0
 
@@ -28,12 +28,12 @@ def move0():
     joint.header.stamp = rospy.Time.now()
 
     counter += 1
-    if counter > 3:
+    if counter > 300:
         counter = 0
         reverse = not reverse
 
     joint_publisher.publish(joint)
-    rospy.sleep(1)
+    rospy.sleep(.2)
 
 
 if __name__ == '__main__':
