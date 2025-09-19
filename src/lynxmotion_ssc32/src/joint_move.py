@@ -8,6 +8,8 @@ joint = JointState()
 joint.name = ["base", "shoulder", "elbow", "wrist", "wrist_twist"]
 joint.position = [0, 0, 0, 0, 0]
 
+THETA_INCREMENT = 0.5
+
 def move0():
     global joint
     joint.position[0] = 0
