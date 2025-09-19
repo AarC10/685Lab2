@@ -1,0 +1,6 @@
+<package>
+  <description brief="alb5_description">alb5_description</description>
+  <depend package="gazebo" />
+  <author>me</author>
+  <license>BSD</license>
+</package>
