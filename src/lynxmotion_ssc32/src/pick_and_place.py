@@ -31,6 +31,8 @@ STEP_TIME = 0.5
 HOME_TIME = 3
 HOME_TIMESTEPS = int(HOME_TIME / STEP_TIME)
 
+current_state = STATE_HOME
+
 
 
 def set_gripper(open_position):
