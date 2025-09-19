@@ -87,6 +87,7 @@ def state_machine():
         set_gripper(False)
         counter = 0
         current_state = STATE_OPEN_GRIPPER
+        rospy.sleep(5)
     elif current_state == STATE_CLOSE_GRIPPER:
         set_gripper(True)
         rospy.sleep(10)
