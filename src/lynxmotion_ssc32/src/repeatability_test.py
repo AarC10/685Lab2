@@ -15,22 +15,24 @@ TARGET_SHOULDER = -0.565
 TARGET_ELBOW = 0.141
 TARGET_WRIST = 0.353
 
-SHOULDER_INCREMENT = TARGET_SHOULDER / 100
-ELBOW_INCREMENT = TARGET_ELBOW / 100
-WRIST_INCREMENT = TARGET_WRIST / 100
+TIMESTEPS = 100
+SHOULDER_INCREMENT = TARGET_SHOULDER / TIMESTEPS
+ELBOW_INCREMENT = TARGET_ELBOW / TIMESTEPS
+WRIST_INCREMENT = TARGET_WRIST / TIMESTEPS
 
 def move0():
     global joint
     global reverse
     global counter
-    increment = THETA_INCREMENT
+
     if reverse:
-        increment *= -1
-
-    joint.position[1] += SHOULDER_INCREMENT # shoulder
-    joint.position[2] += ELBOW_INCREMENT # elbow
-    joint.position[3] += WRIST_INCREMENT # wrist
-
+        joint.position[1] -= SHOULDER_INCREMENT # shoulder
+        joint.position[2] -= ELBOW_INCREMENT # elbow
+        joint.position[3] -= WRIST_INCREMENT # wrist
+    else:
+        joint.position[1] += SHOULDER_INCREMENT # shoulder
+        joint.position[2] += ELBOW_INCREMENT # elbow
+        joint.position[3] += WRIST_INCREMENT # wrist
 
     joint.header.stamp = rospy.Time.now()
 
