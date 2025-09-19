@@ -32,6 +32,7 @@ HOME_TIME = 3
 HOME_TIMESTEPS = int(HOME_TIME / STEP_TIME)
 
 current_state = STATE_HOME
+counter = 0
 
 
 
