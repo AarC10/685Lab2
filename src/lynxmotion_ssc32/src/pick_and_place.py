@@ -87,12 +87,15 @@ def state_machine():
         set_gripper(False)
         counter = 0
         current_state = STATE_OPEN_GRIPPER
-        rospy.sleep(5)
+        if counter >= TIMESTEPS:
+            counter = 0
+            current_state = STATE_CLOSE_GRIPPER
     elif current_state == STATE_CLOSE_GRIPPER:
         set_gripper(True)
-        rospy.sleep(10)
         counter = 0
-        current_state = STATE_HOME
+        if counter >= TIMESTEPS * 2:
+            counter = 0
+            current_state = STATE_HOME
 
     joint.header.stamp = rospy.Time.now()
     joint_publisher.publish(joint)
