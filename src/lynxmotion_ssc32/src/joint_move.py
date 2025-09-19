@@ -33,7 +33,7 @@ def move0():
         reverse = not reverse
 
     joint_publisher.publish(joint)
-    rospy.sleep(.2)
+    rospy.sleep(.05)
 
 
 if __name__ == '__main__':
