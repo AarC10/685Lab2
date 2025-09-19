@@ -30,6 +30,7 @@
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
     type="joint_state_publisher_gui" />
+  -->
 
 
 
@@ -37,7 +38,6 @@
     name="robot_state_publisher"
     pkg="robot_state_publisher"
     type="robot_state_publisher" />
-  -->
 
 <!-- Comment out the next block if you want to run RViz only (no real robot) -->
   <node
