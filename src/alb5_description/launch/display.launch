@@ -26,17 +26,18 @@
 <!-- Comment out the next block if you are writing your own publisher scripts -->
 
 
-<node
+<!-- <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
     type="joint_state_publisher_gui" />
+  -->
 
 
 
-  <node
+  <!-- <node
     name="robot_state_publisher"
     pkg="robot_state_publisher"
-    type="robot_state_publisher" />
+    type="robot_state_publisher" /> -->
 
 <!-- Comment out the next block if you want to run RViz only (no real robot) -->
   <node
