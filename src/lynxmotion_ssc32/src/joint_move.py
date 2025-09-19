@@ -13,7 +13,8 @@ counter = 0
 
 def move0():
     global joint
-
+    global reverse
+    global counter
     increment = THETA_INCREMENT
     if reverse:
         increment *= -1
