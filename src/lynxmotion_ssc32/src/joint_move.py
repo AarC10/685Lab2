@@ -3,7 +3,7 @@
 import rospy
 from sensor_msgs.msg import JointState
 
-joint_publisher = rospy.Publisher('/custom_joint_states', JointState, queue_size=10)
+joint_publisher = rospy.Publisher('/joint_states', JointState, queue_size=10)
 joint = JointState()
 joint.name = ["base", "shoulder", "elbow", "wrist", "wrist_twist", "gripper"]
 joint.position = [0, 0, 0, 0, 0, 0]
