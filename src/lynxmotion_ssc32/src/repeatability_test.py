@@ -37,7 +37,7 @@ def move0():
     joint.header.stamp = rospy.Time.now()
 
     counter += 1
-    if counter > 100:
+    if counter > TIMESTEPS:
         counter = 0
         reverse = not reverse
 
