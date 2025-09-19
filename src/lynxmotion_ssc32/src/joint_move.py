@@ -38,7 +38,6 @@ def move0():
 if __name__ == '__main__':
     rospy.init_node('Movement')
     try:
-        global joint
         joint.position[0] = 0
         joint.position[1] = 0
         joint.position[2] = 0
