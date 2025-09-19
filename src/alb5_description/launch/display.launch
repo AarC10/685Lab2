@@ -16,9 +16,9 @@
 <!-- Use joint_state_publisher for controlling the robot -->
 
 
-<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+<!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
      <rosparam param="source_list">[/custom_joint_states]</rosparam>
-</node>
+</node> -->
 
 
 
