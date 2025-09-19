@@ -53,7 +53,14 @@ if __name__ == '__main__':
         joint.position[2] = 0
         joint.position[3] = 0
         joint.position[4] = 0
+        joint.position[5] = 0
+        joint_publisher.publish(joint)
+        rospy.sleep(2)
+
         joint.position[5] = 1.411 # Gripper for pen
+        joint_publisher.publish(joint)
+        rospy.sleep(1)
+
 
 
         while not rospy.is_shutdown():
