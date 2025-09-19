@@ -37,12 +37,11 @@ counter = 0
 
 
 def set_gripper(open_position):
-    target = 0 if open_position else 1.411
-    for i in range(2):
-        joint.position[5] = target
-        joint.header.stamp = rospy.Time.now()
-        joint_publisher.publish(joint)
-        rospy.sleep(1)
+    target = 0 if open_position else 1.411  # 0 = open, 1.411 = closed
+    joint.position[5] = target
+    joint.header.stamp = rospy.Time.now()
+    joint_publisher.publish(joint)
+    rospy.sleep(0.1)
 
 def state_machine():
     global joint
@@ -82,19 +81,21 @@ def state_machine():
         counter += 1
         if counter >= TIMESTEPS:
             counter = 0
-            current_state = STATE_OPEN_GRIPPER
+            current_state = STATE_CLOSE_GRIPPER
+            
     elif current_state == STATE_CLOSE_GRIPPER:
         set_gripper(False)
-
+        
         counter += 1
         if counter >= TIMESTEPS:
             counter = 0
-            current_state = STATE_CLOSE_GRIPPER
-    elif current_state == STATE_CLOSE_GRIPPER:
+            current_state = STATE_OPEN_GRIPPER
+            
+    elif current_state == STATE_OPEN_GRIPPER:
         set_gripper(True)
-        counter += 1
         
-        if counter >= TIMESTEPS * 2:
+        counter += 1
+        if counter >= TIMESTEPS:
             counter = 0
             current_state = STATE_HOME
 
